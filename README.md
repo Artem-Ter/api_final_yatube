@@ -8,7 +8,7 @@ The project was accessed via API, changing content only by authors, creating con
 
 ## How to launch a project:
 
-Clone the repository and switch to it on the command line:
+Clone the repository and switch to it using the command line:
 ```
 git clone git@github.com:Artem-Ter/api_final_yatube.git
 or
