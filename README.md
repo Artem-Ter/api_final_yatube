@@ -2,17 +2,20 @@
 
 ## Project description:
 
-Platform for publishing posts and comments on them. It is possible to create groups with descriptions, attach posts to groups. You can also subscribe to authors.
+Platform for publishing posts and comments. It is possible to: create groups, make posts, subscribe to authors.
 
-The project was accessed via API, changing content only by authors, creating content only for authenticated applications. View content for everyone. The project uses JWT tokens for authentication.
+The project created using HTML temlates.
+For authentication JWT tokens are used.
+Restriction and roles:
+- view contect - everyone
+- create content - authenticated users
+- change content - content's author
 
 ## How to launch a project:
 
 Clone the repository and switch to it using the command line:
 ```
 git clone git@github.com:Artem-Ter/api_final_yatube.git
-or
-git clone https://github.com/Artem-Ter/api_final_yatube.git
 
 ```
 ```
@@ -40,6 +43,11 @@ python3 manage.py makemigrations
 ```
 ```
 python3 manage.py migrate
+```
+
+Run project:
+```
+python3 manage.py runserver
 ```
 
 ## Technologies used:
