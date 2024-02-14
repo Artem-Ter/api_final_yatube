@@ -1,46 +1,99 @@
-# api_final
-### Как запустить проект:
+# Platform for publishing posts and comments on them with API.
 
-Клонировать репозиторий и перейти в него в командной строке:
+## Project description:
 
+Platform for publishing posts and comments on them. It is possible to create groups with descriptions, attach posts to groups. You can also subscribe to authors.
+
+The project was accessed via API, changing content only by authors, creating content only for authenticated applications. View content for everyone. The project uses JWT tokens for authentication.
+
+## How to launch a project:
+
+Clone the repository and switch to it on the command line:
 ```
 git clone git@github.com:Artem-Ter/api_final_yatube.git
 or
 git clone https://github.com/Artem-Ter/api_final_yatube.git
-```
 
 ```
-cd kittygram2plus
 ```
-
-Cоздать и активировать виртуальное окружение:
-
+cd api_final_yatube
+```
+Create and activate virtual environment:
 ```
 python3 -m venv env
 ```
-
 ```
 source env/bin/activate
 ```
-
 ```
 python3 -m pip install --upgrade pip
 ```
 
-Установить зависимости из файла requirements.txt:
-
+Install dependencies from a file requirements.txt:
 ```
 pip install -r requirements.txt
 ```
 
-Выполнить миграции:
-
+Make migrations:
+```
+python3 manage.py makemigrations
+```
 ```
 python3 manage.py migrate
 ```
 
-Запустить проект:
+## Technologies used:
 
+- Python;
+- Django Framework;
+- Django-Rest-Framework;
+- JWT;
+- Djoser;
+
+## Endpoints API Yatube:
+
+- (GET, POST): get a list of all posts or create a new post.
 ```
-python3 manage.py runserver
+api/v1/posts/
 ```
+- (GET, PUT, PATCH, DELETE): get, edit or delete a post by id.
+```
+api/v1/posts/{post_id}/ 
+```
+- (GET): get a list of all groups.
+```
+api/v1/groups/ 
+```
+- (GET): get information about a group by id.
+```
+api/v1/groups/{group_id}/ 
+```
+- (GET, POST): get a list of all post comments with id=post_id or create a new one by specifying the id of the post we want to comment on.
+```
+api/v1/posts/{post_id}/comments/ 
+```
+ - (GET, PUT, PATCH, DELETE): get, edit or delete a comment by id for a post with id=post_id.
+```
+api/v1/posts/{post_id}/comments/{comment_id}/ 
+```
+- (GET, POST): get a list of all subscriptions or create a new subscription.
+```
+api/v1/follow/ 
+```
+- (POST): we pass the login and password, we get the token.
+``` 
+api/v1/jwt/create/ 
+```
+- (POST): pass a refresh token, get a new access token.
+```
+api/v1/jwt/refresh/ 
+```
+- (POST): verifying the token.
+```
+api/v1/jwt/verify/ 
+```
+In response to POST, PUT, and PATCH requests, the API returns the object that was added or changed.
+
+
+## Project author
+[Artem Tereschenko](https://github.com/Artem-Ter)
